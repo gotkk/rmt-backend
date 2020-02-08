@@ -17,5 +17,8 @@ app.use((_req, res, next) => {
 app.get('/', (_req, res) => res.send('this is rmt-backend app!'))
 
 app.use('/tenant', require('./routes/tenant'))
+app.use('/land', require('./routes/land'))
+app.use('/electricity', require('./routes/electricity'))
+app.use('/water', require('./routes/water'))
 
 app.listen(3000, () => console.log('rmt-backend app listening on port 3000!'))
