@@ -9,7 +9,7 @@ const Electricity = new Schema({
         required: true
     },
     electppunit: {
-        type: String,
+        type: Number,
         required: true
     },
     electstatus: {
@@ -18,11 +18,11 @@ const Electricity = new Schema({
     },
     land: {
         type: ObjectId,
-        ref: "Land"
+        ref: "Lands"
     },
     contract: {
         type: ObjectId,
-        ref: "Contract"
+        ref: "Contracts"
     }
 })
 

@@ -9,7 +9,7 @@ const Water = new Schema({
         required: true
     },
     waterppunit: {
-        type: String,
+        type: Number,
         required: true
     },
     waterstatus: {
@@ -18,11 +18,11 @@ const Water = new Schema({
     },
     land: {
         type: ObjectId,
-        ref: "Land"
+        ref: "Lands"
     },
     contract: {
         type: ObjectId,
-        ref: "Contract"
+        ref: "Contracts"
     }
 })
 

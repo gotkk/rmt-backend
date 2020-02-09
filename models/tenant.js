@@ -20,17 +20,13 @@ const Tenant = new Schema({
         type: Array,
         required: false
     },
-    tenantstatus: {
-        type: Boolean,
-        required: true
-    },
     contract: [{
         type: ObjectId,
-        ref: "Contract"
+        ref: "Contracts"
     }],
     bill: [{
         type: ObjectId,
-        ref: "Bill"
+        ref: "Bills"
     }]
 })
 

@@ -18,15 +18,15 @@ const Land = new Schema({
     },
     contract: {
         type: ObjectId,
-        ref: "Contract"
+        ref: "Contracts"
     },
     electricity: [{
         type: ObjectId,
-        ref: "Electricity"
+        ref: "Electricitys"
     }],
     water: [{
         type: ObjectId,
-        ref: "Water"
+        ref: "Waters"
     }]
 })
 
