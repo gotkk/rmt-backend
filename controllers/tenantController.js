@@ -3,6 +3,7 @@ const Tenant = require('../models/tenant');
 const Contract = require('../models/contract');
 const Electricity = require('../models/electricity');
 const Water = require('../models/water');
+const Bill = require('../models/bill');
 
 module.exports = {
     getAllTenant: (_req, res, _next) => {
@@ -26,6 +27,10 @@ module.exports = {
                     path: 'water',
                     model: Water
                 }
+            })
+            .populate({
+                path: 'bill',
+                Model: Bill
             })
             .exec()
             .then((result) => {

@@ -4,8 +4,12 @@ const Schema = mongoose.Schema;
 ObjectId = Schema.ObjectId;
 
 const Bill = new Schema({
-    period: {
-        type: Date,
+    month: {
+        type: Number,
+        required: true
+    },
+    year: {
+        type: Number,
         required: true
     },
     billstatus: {
@@ -43,6 +47,14 @@ const Bill = new Schema({
     electunit: {
         type: Array,
         require: false
+    },
+    tenant: {
+        type: ObjectId,
+        ref: "Tenants"
+    },
+    contract: {
+        type: ObjectId,
+        ref: "Contracts"
     }
 })
 
