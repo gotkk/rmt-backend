@@ -10,7 +10,10 @@ mongoose.connect('mongodb://localhost/rmt', { useNewUrlParser: true })
 app.use(bodyParser.json());
 
 app.use((_req, res, next) => {
-    res.header('Access-Control-Allow-Origin', "http://localhost:8080");
+    res.setHeader('Access-Control-Allow-Origin', "http://localhost:8080");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true); 
     next();
 })
 

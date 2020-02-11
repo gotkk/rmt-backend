@@ -16,7 +16,7 @@ const Bill = new Schema({
         type: String,
         required: true
     },
-    rental: {
+    rent: {
         type: Number,
         required: false
     },
