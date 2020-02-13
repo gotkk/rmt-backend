@@ -47,7 +47,7 @@ module.exports = {
             .then((tresult) => {
                 Bill.find()
                     .then((result) => {
-                        let lastbill = result[result.length-1]._id;
+                        let lastbill = result[result.length - 1]._id;
                         let billtemp = tresult[0].bill;
                         billtemp = [...billtemp, lastbill]
                         let update_values = {
@@ -69,10 +69,19 @@ module.exports = {
             .catch((err) => {
                 res.json({ success: false, result: err })
             })
-
-
-
-
+    },
+    updateTenantById: (req, res, _next) => {
+        const { id } = req.params;
+        let update_values = {
+            ...req.body
+        }
+        Tenant.updateOne({ _id: id }, update_values)
+            .then((result) => {
+                res.status(200).json({ success: true, result: result })
+            })
+            .catch((err) => {
+                res.json({ success: false, result: err })
+            })
     }
 
 }
