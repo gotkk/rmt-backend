@@ -16,14 +16,14 @@ const Electricity = new Schema({
         type: Boolean,
         required: true
     },
-    land: {
+    land: [{
         type: ObjectId,
         ref: "Lands"
-    },
-    contract: {
+    }],
+    contract: [{
         type: ObjectId,
         ref: "Contracts"
-    }
+    }]
 })
 
 Electricity.pre('save', function (next) {

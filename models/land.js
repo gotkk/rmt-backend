@@ -16,10 +16,10 @@ const Land = new Schema({
         type: Boolean,
         required: true
     },
-    contract: {
+    contract: [{
         type: ObjectId,
         ref: "Contracts"
-    },
+    }],
     electricity: [{
         type: ObjectId,
         ref: "Electricitys"

@@ -16,14 +16,14 @@ const Water = new Schema({
         type: Boolean,
         required: true
     },
-    land: {
+    land: [{
         type: ObjectId,
-        ref: "Lands"
-    },
-    contract: {
+        ref: "Land"
+    }],
+    contract: [{
         type: ObjectId,
         ref: "Contracts"
-    }
+    }]
 })
 
 Water.pre('save', function (next) {
