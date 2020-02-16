@@ -4,12 +4,8 @@ const Schema = mongoose.Schema;
 ObjectId = Schema.ObjectId;
 
 const Bill = new Schema({
-    month: {
-        type: Number,
-        required: true
-    },
-    year: {
-        type: Number,
+    period: {
+        type: String,
         required: true
     },
     billstatus: {

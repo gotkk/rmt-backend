@@ -23,4 +23,17 @@ module.exports = {
                 res.status(400).json({ success: false, result: err });
             })
     },
+    updateWaterById: (req, res, _next) => {
+        const { id } = req.params;
+        let update_values = {
+            ...req.body
+        }
+        Water.updateOne({ _id: id }, update_values)
+            .then((result) => {
+                res.status(200).json({ success: true, result: result })
+            })
+            .catch((err) => {
+                res.json({ success: false, result: err })
+            })
+    },
 }

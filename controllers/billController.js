@@ -1,5 +1,6 @@
 
 const Bill = require('../models/bill');
+const Tenant = require('../models/tenant');
 
 module.exports = {
     createBill: (req, res, _next) => {
@@ -16,6 +17,10 @@ module.exports = {
     },
     getAllBill: (_req, res, _next) => {
         Bill.find()
+            .populate({
+                path: "tenant",
+                model: Tenant
+            })
             .then((result) => {
                 res.status(200).json({ success: true, result: result });
             })

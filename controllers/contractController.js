@@ -6,6 +6,18 @@ const Water = require('../models/water');
 const Electricity = require('../models/electricity');
 
 module.exports = {
+    createContract: (req, res, _next) => {
+        let contract = new Contract({
+            ...req.body
+        })
+        contract.save()
+            .then(result => {
+                res.status(200).json({ success: true, result: result });
+            })
+            .catch((err) => {
+                res.status(400).json({ success: false, result: err });
+            })
+    },
     getAllContract: (_req, res, _next) => {
         Contract.find()
             .populate({
@@ -33,6 +45,18 @@ module.exports = {
             })
 
     },
-
+    updateContractById: (req, res, _next) => {
+        const { id } = req.params;
+        let update_values = {
+            ...req.body
+        }
+        Contract.updateOne({ _id: id }, update_values)
+            .then((result) => {
+                res.status(200).json({ success: true, result: result })
+            })
+            .catch((err) => {
+                res.json({ success: false, result: err })
+            })
+    },
 
 }

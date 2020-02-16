@@ -12,10 +12,6 @@ const Contract = new Schema({
         type: String,
         required: true
     },
-    duration: {
-        type: Number,
-        required: true
-    },
     deposit: {
         type: Number,
         required: true
@@ -40,14 +36,14 @@ const Contract = new Schema({
         type: Boolean,
         required: true
     },
-    tenant: {
+    tenant: [{
         type: ObjectId,
         ref: "Tenants"
-    },
-    land: {
+    }],
+    land: [{
         type: ObjectId,
         ref: "Lands"
-    },
+    }],
     electricity: [{
         type: ObjectId,
         ref: "Electricitys"
