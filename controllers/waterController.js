@@ -36,4 +36,14 @@ module.exports = {
                 res.json({ success: false, result: err })
             })
     },
+    getWaterByContractId: (req, res, _next) => {
+        const { id } = req.params;
+        Water.find({ contract: { $in: [id] } })
+            .then((result) => {
+                res.status(200).json({ success: true, result: result })
+            })
+            .catch((err) => {
+                res.json({ success: false, result: err })
+            })
+    },
 }

@@ -44,14 +44,14 @@ const Bill = new Schema({
         type: Array,
         require: false
     },
-    tenant: {
+    tenant: [{
         type: ObjectId,
         ref: "Tenants"
-    },
-    contract: {
+    }],
+    contract: [{
         type: ObjectId,
         ref: "Contracts"
-    }
+    }]
 })
 
 Bill.pre('save', function (next) {

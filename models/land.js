@@ -15,19 +15,7 @@ const Land = new Schema({
     landstatus: {
         type: Boolean,
         required: true
-    },
-    contract: [{
-        type: ObjectId,
-        ref: "Contracts"
-    }],
-    electricity: [{
-        type: ObjectId,
-        ref: "Electricitys"
-    }],
-    water: [{
-        type: ObjectId,
-        ref: "Waters"
-    }]
+    }
 })
 
 Land.pre('save', function (next) {

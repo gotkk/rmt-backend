@@ -19,15 +19,7 @@ const Tenant = new Schema({
     tel: {
         type: Array,
         required: false
-    },
-    contract: [{
-        type: ObjectId,
-        ref: "Contracts"
-    }],
-    bill: [{
-        type: ObjectId,
-        ref: "Bills"
-    }]
+    }
 })
 
 Tenant.pre('save', function (next) {

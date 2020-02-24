@@ -35,7 +35,7 @@ module.exports = {
             .populate({
                 path: 'contract',
                 Model: Contract,
-                options: {sort: { 'ctstatus': -1 } },
+                options: { sort: { 'ctstatus': -1 } },
                 populate: {
                     path: 'water',
                     model: Water
@@ -95,6 +95,29 @@ module.exports = {
             .catch((err) => {
                 res.json({ success: false, result: err })
             })
+    },
+    getNewTenantNotHaveBill: (req, res, _next) => {
+        Bill.find()
+            .then((rsbill) => {
+                Tenant.find()
+                    .then((rstenant) => {
+                        let result = [...rstenant];
+                        for (let i = 0, arri = rstenant.length; i < arri; ++i) {
+                            for (let j = 0, arrj = rsbill.length; j < arrj; ++j) {
+                                if (rstenant[i]._id.toString() === rsbill[i].tenant[0]._id.toString() ) {
+                                    result.splice(i,1);
+                                    break;
+                                }
+                            }
+                        }
+                        res.status(200).json({ success: true, result: result });
+                    })
+                    .catch((err) => {
+                        res.status(400).json({ success: false, result: err });
+                    })
+            })
+            .catch((err) => {
+                res.status(400).json({ success: false, result: err });
+            })
     }
-
 }

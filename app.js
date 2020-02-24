@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express()
 
-mongoose.connect('mongodb://localhost/rmt', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/te', { useNewUrlParser: true })
     .then(() => console.log('connection succesful'))
     .catch((err) => console.error(err));
 

@@ -47,4 +47,14 @@ module.exports = {
                 res.json({ success: false, result: err })
             })
     },
+    getElectricityByContractId: (req, res, _next) => {
+        const { id } = req.params;
+        Electricity.find({ contract: { $in: [id] } })
+            .then((result) => {
+                res.status(200).json({ success: true, result: result })
+            })
+            .catch((err) => {
+                res.json({ success: false, result: err })
+            })
+    },
 }

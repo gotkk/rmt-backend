@@ -17,10 +17,6 @@ const Contract = new Schema({
         required: true
     },
     start: {
-        type: ObjectId,
-        ref: "Contract"
-    },
-    start: {
         type: String,
         required: true
     },
@@ -43,15 +39,7 @@ const Contract = new Schema({
     land: [{
         type: ObjectId,
         ref: "Lands"
-    }],
-    electricity: [{
-        type: ObjectId,
-        ref: "Electricitys"
-    }],
-    water: [{
-        type: ObjectId,
-        ref: "Waters"
-    }],
+    }]
 })
 
 Contract.pre('save', function (next) {
