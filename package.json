@@ -10,7 +10,7 @@
   "author": "gotBunmak",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-promise-router": "^3.0.3",
     "mongoose": "^5.8.11"
   }
